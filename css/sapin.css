@@ -1,0 +1,84 @@
+@charset "utf-8";
+
+/*
+Transparente: #DCEDC8
+Primária: #8BC34A
+Forte: #689F38
+
+Transparente: #B2EBF2
+Destaque: #00BCD4
+
+Divisor: #B6B6B6
+Texto primário: #212121
+Texto secundário: #727272
+*/
+
+#cabecalho #superior {
+	background-color: #8BC34A;
+	padding: 1em;
+}
+
+#cabecalho #superior header h1 {
+	color: #FFF;
+	font-size: 1.7em;
+}
+
+#cabecalho #inferior {
+	background-color: #689F38;
+	padding: 0.6em;
+	text-align: right;
+}
+
+#cabecalho #inferior span,
+#cabecalho #inferior span small,
+#cabecalho #inferior a {
+	color: #FFF;
+}
+
+#cabecalho #inferior span {
+	margin-right: 1em;
+}
+
+#cabecalho #inferior a {
+	background-color: #00BCD4;
+	border-radius: 1em;
+	display: inline-block;
+	padding: 0.3em 0.6em;
+}
+
+#etapas {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+#etapas .etapa {
+	padding: 2em 5em;
+	border-color: #B6B6B6;
+	border-style: solid;
+	border-width: 0 0 1px 0;
+}
+
+#etapas .etapa h1 {
+	font-size: 1.3em;
+	color: #212121;
+}
+
+#etapas .etapa ul {
+	list-style: none;
+	margin-left: 1em;
+}
+
+#etapas .etapa ul li {
+	color: #727272;
+	margin-top: 0.5em;
+}
+
+#etapas .etapa ul li a {
+	color: #FFF;
+	background-color: #00BCD4;
+	border-radius: 1em;
+	display: inline-block;
+	padding: 0.3em 0.6em;
+}
