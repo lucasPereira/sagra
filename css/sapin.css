@@ -46,39 +46,52 @@ Texto secundário: #727272
 	padding: 0.3em 0.6em;
 }
 
-#etapas {
+#conteudo {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: center;
 }
 
-#etapas .etapa {
+#conteudo .etapa {
 	padding: 2em 5em;
 	border-color: #B6B6B6;
 	border-style: solid;
 	border-width: 0 0 1px 0;
 }
 
-#etapas .etapa h1 {
+#conteudo .etapa h1 {
 	font-size: 1.3em;
 	color: #212121;
 }
 
-#etapas .etapa ul {
+#conteudo .etapa ul {
 	list-style: none;
 	margin-left: 1em;
 }
 
-#etapas .etapa ul li {
+#conteudo .etapa ul li {
 	color: #727272;
 	margin-top: 0.5em;
 }
 
-#etapas .etapa ul li a {
+#conteudo .etapa ul li a {
 	color: #FFF;
 	background-color: #00BCD4;
 	border-radius: 1em;
 	display: inline-block;
 	padding: 0.3em 0.6em;
+}
+
+#conteudo .formulario {
+	padding: 2em 5em;
+}
+
+#conteudo .formulario h1 {
+	font-size: 1.8em;
+	color: #212121;
+	border-color: #B6B6B6;
+	border-style: solid;
+	border-width: 0 0 1px 0;
+	padding-bottom: 0.1em;
 }
