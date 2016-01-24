@@ -31,7 +31,6 @@ Texto secundário: #727272
 
 #cabecalho .informacoes {
 	background-color: #689F38;
-	padding: 0.6em 1em;
 	text-align: right;
 }
 
@@ -43,7 +42,8 @@ Texto secundário: #727272
 #cabecalho .informacoes ul li {
 	color: #FFF;
 	display: inline-block;
-	margin-left: 1em;
+	padding: 0.6em 1em;
+	/*margin-left: 1em;*/
 	/*border: 1px solid #000;*/
 }
 
