@@ -23,6 +23,12 @@ Texto secundário: #727272
 	font-size: 1.6em;
 }
 
+#cabecalho .sistema header h1 i {
+	color: #FFF;
+	font-size: 1em;
+	vertical-align: middle;
+}
+
 #cabecalho .informacoes {
 	background-color: #689F38;
 	padding: 0.6em 1em;
