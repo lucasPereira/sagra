@@ -35,12 +35,19 @@ Texto secundário: #727272
 	text-align: right;
 }
 
-#cabecalho .informacoes span {
-	color: #FFF;
-	margin-left: 1em;
+#cabecalho .informacoes ul {
+	list-style: none;
+	font-size: 0;
 }
 
-#cabecalho .informacoes span small {
+#cabecalho .informacoes ul li {
+	color: #FFF;
+	display: inline-block;
+	margin-left: 1em;
+	/*border: 1px solid #000;*/
+}
+
+#cabecalho .informacoes ul li small {
 	color: #FFF;
 }
 
@@ -60,12 +67,13 @@ Texto secundário: #727272
 }
 
 #cabecalho .menu ul {
-	display: inline-block;
 	list-style: none;
+	font-size: 0;
 }
 
 #cabecalho .menu ul li {
 	display: inline-block;
+	/*border: 1px solid #000;*/
 }
 
 #cabecalho .menu ul li a {
