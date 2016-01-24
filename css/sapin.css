@@ -13,39 +13,66 @@ Texto primário: #212121
 Texto secundário: #727272
 */
 
-#cabecalho .superior {
+#cabecalho .sistema {
 	background-color: #8BC34A;
-	padding: 2em 5em;
+	padding: 0.6em 1em;
 }
 
-#cabecalho .superior header h1 {
+#cabecalho .sistema header h1 {
 	color: #FFF;
-	font-size: 1.8em;
-	/*text-align: center;*/
+	font-size: 1.6em;
 }
 
-#cabecalho .inferior {
+#cabecalho .informacoes {
 	background-color: #689F38;
-	padding: 0.6em;
+	padding: 0.6em 1em;
 	text-align: right;
 }
 
-
-#cabecalho .inferior span {
+#cabecalho .informacoes span {
 	color: #FFF;
-	margin-right: 1em;
+	margin-left: 1em;
 }
 
-#cabecalho .inferior span small {
+#cabecalho .informacoes span small {
 	color: #FFF;
 }
 
-#cabecalho .inferior a {
+#cabecalho .informacoes a {
 	color: #FFF;
 	background-color: #00BCD4;
 	border-radius: 1em;
 	display: inline-block;
 	padding: 0.3em 0.6em;
+}
+
+#cabecalho .menu {
+	background-color: #F5F5F5;
+	border-color: #B6B6B6;
+	border-style: solid;
+	border-width: 0 0 1px 0;
+}
+
+#cabecalho .menu ul {
+	display: inline-block;
+	list-style: none;
+}
+
+#cabecalho .menu ul li {
+	display: inline-block;
+}
+
+#cabecalho .menu ul li a {
+	padding: 0.6em 1em;
+	display: inline-block;
+}
+
+#cabecalho .menu ul li a i {
+	color: #727272;
+}
+
+#cabecalho .menu ul li a:hover i {
+	color: #212121;
 }
 
 #conteudo .bloco {
@@ -55,13 +82,8 @@ Texto secundário: #727272
 	border-width: 0 0 1px 0;
 }
 
-#conteudo .bloco h1 {
-	font-size: 1.4em;
-	color: #212121;
-}
-
 #conteudo .bloco h1 a {
-	font-size: 1.4em;
+	font-size: 1.6em;
 	color: #212121;
 }
 
