@@ -13,33 +13,34 @@ Texto primário: #212121
 Texto secundário: #727272
 */
 
-#cabecalho #superior {
+#cabecalho .superior {
 	background-color: #8BC34A;
 	padding: 2em 5em;
 }
 
-#cabecalho #superior header h1 {
+#cabecalho .superior header h1 {
 	color: #FFF;
 	font-size: 1.8em;
+	/*text-align: center;*/
 }
 
-#cabecalho #inferior {
+#cabecalho .inferior {
 	background-color: #689F38;
 	padding: 0.6em;
 	text-align: right;
 }
 
 
-#cabecalho #inferior span {
+#cabecalho .inferior span {
 	color: #FFF;
 	margin-right: 1em;
 }
 
-#cabecalho #inferior span small {
+#cabecalho .inferior span small {
 	color: #FFF;
 }
 
-#cabecalho #inferior a {
+#cabecalho .inferior a {
 	color: #FFF;
 	background-color: #00BCD4;
 	border-radius: 1em;
@@ -47,29 +48,38 @@ Texto secundário: #727272
 	padding: 0.3em 0.6em;
 }
 
-#conteudo .etapa {
+#conteudo .bloco {
 	padding: 2em 5em;
 	border-color: #B6B6B6;
 	border-style: solid;
 	border-width: 0 0 1px 0;
 }
 
-#conteudo .etapa h1 {
+#conteudo .bloco h1 {
 	font-size: 1.4em;
 	color: #212121;
 }
 
-#conteudo .etapa ul {
+#conteudo .bloco h1 a {
+	font-size: 1.4em;
+	color: #212121;
+}
+
+#conteudo .bloco h1 a:hover {
+	text-decoration: underline;
+}
+
+#conteudo .bloco ul {
 	list-style: none;
 	margin-left: 1em;
 }
 
-#conteudo .etapa ul li {
+#conteudo .bloco ul li {
 	color: #727272;
 	margin-top: 0.6em;
 }
 
-#conteudo .etapa ul li a {
+#conteudo .bloco ul li a {
 	color: #FFF;
 	background-color: #00BCD4;
 	border-radius: 1em;
@@ -82,6 +92,19 @@ Texto secundário: #727272
 }
 
 #conteudo .formulario h1 {
+	font-size: 1.4em;
+	color: #212121;
+	border-color: #B6B6B6;
+	border-style: solid;
+	border-width: 0 0 1px 0;
+	padding-bottom: 0.1em;
+}
+
+#conteudo .etapa {
+	padding: 2em 5em;
+}
+
+#conteudo .etapa h1 {
 	font-size: 1.4em;
 	color: #212121;
 	border-color: #B6B6B6;
