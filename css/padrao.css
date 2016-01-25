@@ -32,7 +32,12 @@ header,
 li,
 nav,
 p,
-ul {
+ul,
+thead,
+tbody,
+tr,
+td,
+th {
 	color: #F00;
 	font-family: sans-serif;
 	font-size: 16px;
@@ -50,7 +55,6 @@ small,
 strong,
 span {
 	color: #F00;
-	display: inline;
 	font-family: sans-serif;
 	font-size: 16px;
 	font-weight: normal;
