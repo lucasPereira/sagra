@@ -1,24 +1,46 @@
 @charset "utf-8";
 
-html {
+body,
+div,
+h1,
+header,
+li,
+nav,
+p,
+ul {
+	color: #F00;
+	font-family: sans-serif;
 	font-size: 16px;
-}
+	font-weight: normal;
+	line-height: normal;
+	text-decoration: none;
 
-* {
 	margin: 0;
 	padding: 0;
-	font-family: sans-serif;
-	font-size: 1em;
-	font-size: 1rem;
-	font-weight: normal;
+	vertical-align: middle;
+}
+
+a,
+i,
+small,
+span {
 	color: #F00;
+	display: inline;
+	font-family: sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: normal;
 	text-decoration: none;
+
+	vertical-align: middle;
 }
 
-small {
-	font-size: 0.7em;
+.icone {
+	font-family: 'Material Icons';
 }
 
-strong {
-	font-weight: bold;
+#conteudo p,
+#conteudo h1,
+#conteudo li {
+	/*border: 1px solid #000;*/
 }

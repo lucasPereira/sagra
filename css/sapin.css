@@ -1,62 +1,60 @@
 @charset "utf-8";
 
 /*
-Transparente: #DCEDC8
+Primária transparente: #DCEDC8
 Primária: #8BC34A
-Forte: #689F38
+Primária forte: #689F38
 
-Transparente: #B2EBF2
+Destaque transparente: #B2EBF2
 Destaque: #00BCD4
 
 Divisor: #B6B6B6
+Cinza claro I: #F5F5F5
+Cinza claro II: #F5F5F5
+
 Texto primário: #212121
 Texto secundário: #727272
 */
 
 #cabecalho .sistema {
-	background-color: #8BC34A;
-	padding: 0.6em 1em;
-}
-
-#cabecalho .sistema header h1 {
-	color: #FFF;
-	font-size: 1.6em;
-}
-
-#cabecalho .sistema header h1 i {
-	color: #FFF;
-	font-size: 1em;
-	vertical-align: middle;
-}
-
-#cabecalho .informacoes {
 	background-color: #689F38;
+	font-size: 0;
 	text-align: right;
 }
 
-#cabecalho .informacoes ul {
-	list-style: none;
-	font-size: 0;
-}
-
-#cabecalho .informacoes ul li {
+#cabecalho .sistema p {
 	color: #FFF;
 	display: inline-block;
-	padding: 0.6em 1em;
-	/*margin-left: 1em;*/
-	/*border: 1px solid #000;*/
+	margin: 0.5em 1em 0.5em 0;
 }
 
-#cabecalho .informacoes ul li small {
+#cabecalho .sistema p small {
+	color: #FFF;
+	font-size: 12px;
+}
+
+#cabecalho .sistema p a {
+	color: #DCEDC8;
+	font-size: 32px;
+}
+
+#cabecalho .sistema p a:hover {
 	color: #FFF;
 }
 
-#cabecalho .informacoes a {
+#cabecalho .titulo {
+	background-color: #8BC34A;
+}
+
+#cabecalho .titulo header h1 {
 	color: #FFF;
-	background-color: #00BCD4;
-	border-radius: 1em;
-	display: inline-block;
-	padding: 0.3em 0.6em;
+	font-size: 24px;
+	padding: 0.5em 1em;
+}
+
+#cabecalho .titulo header h1 i {
+	color: #FFF;
+	font-size: 24px;
 }
 
 #cabecalho .menu {
@@ -66,85 +64,53 @@ Texto secundário: #727272
 	border-width: 0 0 1px 0;
 }
 
-#cabecalho .menu ul {
+#cabecalho .menu nav ul {
 	list-style: none;
 	font-size: 0;
 }
 
-#cabecalho .menu ul li {
-	display: inline-block;
-	/*border: 1px solid #000;*/
-}
-
-#cabecalho .menu ul li a {
-	padding: 0.6em 1em;
+#cabecalho .menu nav ul li {
 	display: inline-block;
 }
 
-#cabecalho .menu ul li a i {
+#cabecalho .menu nav ul li a {
 	color: #727272;
+	font-size: 24px;
+	display: inline-block;
+	padding: 0.5em 1em;
 }
 
-#cabecalho .menu ul li a:hover i {
+#cabecalho .menu nav ul li a:hover {
 	color: #212121;
+	background-color: #EAEAEA;
 }
 
 #conteudo .bloco {
-	padding: 2em 5em;
+	padding: 2em 1em 2em 4em;
 	border-color: #B6B6B6;
 	border-style: solid;
 	border-width: 0 0 1px 0;
 }
 
 #conteudo .bloco h1 a {
-	font-size: 1.6em;
 	color: #212121;
+	font-size: 22px;
 }
 
 #conteudo .bloco h1 a:hover {
 	text-decoration: underline;
 }
 
-#conteudo .bloco ul {
-	list-style: none;
+#conteudo .bloco p {
+	color: #727272;
+	margin-top: 0.5em;
 	margin-left: 1em;
 }
 
-#conteudo .bloco ul li {
-	color: #727272;
-	margin-top: 0.6em;
-}
-
-#conteudo .bloco ul li a {
-	color: #FFF;
+#conteudo .bloco p a {
 	background-color: #00BCD4;
 	border-radius: 1em;
+	color: #FFF;
 	display: inline-block;
-	padding: 0.3em 0.6em;
-}
-
-#conteudo .formulario {
-	padding: 2em 5em;
-}
-
-#conteudo .formulario h1 {
-	font-size: 1.4em;
-	color: #212121;
-	border-color: #B6B6B6;
-	border-style: solid;
-	border-width: 0 0 1px 0;
-	padding-bottom: 0.1em;
-}
-
-#conteudo .etapa {
-	padding: 2em 5em;
-}
-
-#conteudo .etapa h1 {
-	font-size: 1.4em;
-	color: #212121;
-	border-color: #B6B6B6;
-	border-style: solid;
-	border-width: 0 0 1px 0;
-	padding-bottom: 0.1em;
+	padding: 0.5em 1em;
 }
