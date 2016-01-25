@@ -254,6 +254,18 @@
 	outline: none;
 }
 
+#conteudo .bloco form input[disabled] {
+	background-color: #EAEAEA;
+	border-color: #EAEAEA;
+	border-left-color: #B6B6B6;
+	color: #B6B6B6;
+}
+
+#conteudo .bloco form input[disabled]:hover {
+	border-color: #EAEAEA;
+	border-left-color: #B6B6B6;
+}
+
 #conteudo .bloco form button {
 	border: none;
 	background-color: #00BCD4;

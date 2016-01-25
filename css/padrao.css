@@ -22,6 +22,10 @@ Texto auxiliar: #B6B6B6
 Alerta: #FE6363
 */
 
+body {
+	background-color: #FFF;
+}
+
 body,
 dd,
 div,

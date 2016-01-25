@@ -18,7 +18,12 @@
 
 			<div class="titulo">
 				<header>
-					<h1>Desapropriação</h1>
+					<h1>
+						Desapropriação <i class="material-icons">chevron_right</i>
+						Processos <i class="material-icons">chevron_right</i>
+						<strong>5002552-66.2013.404.7203/SC</strong> <i class="material-icons">chevron_right</i>
+						Abertura
+					</h1>
 				</header>
 			</div>
 
@@ -37,7 +42,19 @@
 
 		<div id="conteudo">
 			<div class="bloco">
-				<h1>Página ainda não construída</h1>
+				<form method="get" action="/html/desapropriacao/processo.html">
+					<label><strong>Número do processo</strong></label>
+					<input disabled type="text" value="5002552-66.2013.404.7203/SC" />
+					<label>Código do imóvel rural</label>
+					<input disabled type="text" value="999.888.777.666-0" />
+					<label>Nome do imóvel rural</label>
+					<input type="text" value="Fazenda Santa Terezinha" />
+					<label>CPF do proprietário</label>
+					<input disabled type="text" value="000.111.222-99" />
+					<label>Nome do proprietário</label>
+					<input type="text" value="João da Silva" />
+					<button type="submit">Salvar</button>
+				</form>
 			</div>
 		</div>
 	</body>
