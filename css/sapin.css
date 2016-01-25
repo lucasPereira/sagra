@@ -1,21 +1,5 @@
 @charset "utf-8";
 
-/*
-Primária transparente: #DCEDC8
-Primária: #8BC34A
-Primária forte: #689F38
-
-Destaque transparente: #B2EBF2
-Destaque: #00BCD4
-
-Divisor: #B6B6B6
-Cinza claro I: #F5F5F5
-Cinza claro II: #EAEAEA
-
-Texto primário: #212121
-Texto secundário: #727272
-*/
-
 #cabecalho .sistema {
 	background-color: #689F38;
 	font-size: 0;
@@ -53,7 +37,12 @@ Texto secundário: #727272
 }
 
 #cabecalho .titulo header h1 i {
-	color: #FFF;
+	color: #689F38;
+	font-size: 24px;
+}
+
+#cabecalho .titulo header h1 strong {
+	color: #689F38;
 	font-size: 24px;
 }
 
@@ -127,7 +116,7 @@ Texto secundário: #727272
 }
 
 #conteudo .bloco dl dt:after {
-	content: ":";
+	content: none;
 }
 
 #conteudo .bloco dl dd {
@@ -162,16 +151,21 @@ Texto secundário: #727272
 	font-size: 40px;
 }
 
-#conteudo .formulario {
+#conteudo .bloco {
 	padding: 2em 1.5em;
 }
 
-#conteudo .formulario form label {
+#conteudo .bloco form label {
 	display: block;
 	color: #B6B6B6;
 }
 
-#conteudo .formulario form input {
+#conteudo .bloco form label strong {
+	color: #B6B6B6;
+	font-weight: bold;
+}
+
+#conteudo .bloco form input {
 	border-color: #EAEAEA;
 	border-left-color: #B6B6B6;
 	border-style: solid;
@@ -184,17 +178,17 @@ Texto secundário: #727272
 	width: 100%;
 }
 
-#conteudo .formulario form input:hover {
+#conteudo .bloco form input:hover {
 	border-color: #00BCD4;
 	outline: none;
 }
 
-#conteudo .formulario form input:focus {
+#conteudo .bloco form input:focus {
 	border-color: #00BCD4;
 	outline: none;
 }
 
-#conteudo .formulario form button {
+#conteudo .bloco form button {
 	border: none;
 	background-color: #00BCD4;
 	font-size: 20px;
@@ -203,12 +197,12 @@ Texto secundário: #727272
 	padding: 0.5em 1em;
 }
 
-#conteudo .formulario form button:hover {
-	background-color: #00ACC1;
+#conteudo .bloco form button:hover {
+	box-shadow: 0.15em 0.15em 0.3em 0 #DDD;
 	outline: none;
 }
 
-#conteudo .formulario form button:active {
-	background-color: #0097A7;
+#conteudo .bloco form button:active {
+	box-shadow: 0.15em 0.15em 0.3em 0 #BBB;
 	outline: none;
 }

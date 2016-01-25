@@ -1,5 +1,27 @@
 @charset "utf-8";
 
+/*
+Primária claro: #DCEDC8
+Primária: #8BC34A
+Primária escuro: #689F38
+
+Destaque claro: #B2EBF2
+Destaque: #00BCD4
+
+Divisor: #B6B6B6
+Cinza I: #F5F5F5
+Cinza II: #EAEAEA
+Sombra I: #DDD;
+Sombra II: #BBB;
+
+Texto primário: #212121
+Texto secundário: #727272
+Texto em fundo escuro: #FFF
+Texto auxiliar: #B6B6B6
+
+Alerta: #FE6363
+*/
+
 body,
 dd,
 div,
@@ -16,7 +38,6 @@ ul {
 	font-size: 16px;
 	font-weight: normal;
 	line-height: normal;
-	text-decoration: none;
 
 	margin: 0;
 	padding: 0;
@@ -26,6 +47,7 @@ ul {
 a,
 i,
 small,
+strong,
 span {
 	color: #F00;
 	display: inline;
