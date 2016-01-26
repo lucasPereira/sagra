@@ -141,6 +141,14 @@
 	margin-left: 1em;
 }
 
+#conteudo .bloco ul li a {
+	color: #727272;
+}
+
+#conteudo .bloco ul li a:hover {
+	text-decoration: underline;
+}
+
 #conteudo .bloco ul li a.icone.destaque {
 	color: #00BCD4;
 }
