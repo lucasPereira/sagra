@@ -161,10 +161,6 @@
 	width: 100%;
 }
 
-#conteudo .bloco table tbody tr:hover {
-	background-color: #F5F5F5;
-}
-
 #conteudo .bloco table tbody td {
 	border-color: #B6B6B6;
 	border-style: solid;
@@ -187,6 +183,11 @@
 	padding: 0.05em 0.2em;
 	margin-left: 0.5em;
 }
+
+#conteudo .bloco table tbody tr:hover {
+	background-color: #F5F5F5;
+}
+
 
 #conteudo .bloco table tbody tr th {
 	color: #727272;
@@ -215,10 +216,19 @@
 	text-decoration: underline;
 }
 
+#conteudo .bloco table tbody tr.alerta td:last-of-type {
+	color: #FE6363;
+}
+
 #conteudo .bloco table tfoot tr td {
 	color: #727272;
 	padding: 1em;
 	text-align: left;
+}
+
+#conteudo .bloco table tfoot tr td span {
+	color: #FE6363;
+	font-size: 20px;
 }
 
 #conteudo .bloco form label {
