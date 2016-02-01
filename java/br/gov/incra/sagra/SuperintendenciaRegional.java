@@ -1,11 +1,11 @@
 package br.gov.incra.sagra;
 
-public class SuperIntendenciaRegional {
+public class SuperintendenciaRegional {
 
 	private String nome;
 	private UnidadeFederativa unidadeFederativa;
 
-	public SuperIntendenciaRegional(String nome, UnidadeFederativa unidadeFederativa) {
+	public SuperintendenciaRegional(String nome, UnidadeFederativa unidadeFederativa) {
 		this.nome = nome;
 		this.unidadeFederativa = unidadeFederativa;
 	}
@@ -20,8 +20,8 @@ public class SuperIntendenciaRegional {
 
 	@Override
 	public boolean equals(Object objeto) {
-		if (objeto instanceof SuperIntendenciaRegional) {
-			SuperIntendenciaRegional outro = (SuperIntendenciaRegional) objeto;
+		if (objeto instanceof SuperintendenciaRegional) {
+			SuperintendenciaRegional outro = (SuperintendenciaRegional) objeto;
 			return nome.equals(outro.nome);
 		}
 		return false;
