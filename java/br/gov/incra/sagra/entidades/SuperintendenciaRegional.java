@@ -1,4 +1,4 @@
-package br.gov.incra.sagra;
+package br.gov.incra.sagra.entidades;
 
 public class SuperintendenciaRegional {
 

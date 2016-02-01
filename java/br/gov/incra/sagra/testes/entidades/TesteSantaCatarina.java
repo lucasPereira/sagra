@@ -1,11 +1,11 @@
-package br.gov.incra.sagra.teste;
+package br.gov.incra.sagra.testes.entidades;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import br.gov.incra.sagra.UnidadeFederativa;
+import br.gov.incra.sagra.entidades.UnidadeFederativa;
 
 public class TesteSantaCatarina {
 

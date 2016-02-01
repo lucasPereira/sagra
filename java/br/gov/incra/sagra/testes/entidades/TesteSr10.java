@@ -1,12 +1,12 @@
-package br.gov.incra.sagra.teste;
+package br.gov.incra.sagra.testes.entidades;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import br.gov.incra.sagra.SuperintendenciaRegional;
-import br.gov.incra.sagra.UnidadeFederativa;
+import br.gov.incra.sagra.entidades.SuperintendenciaRegional;
+import br.gov.incra.sagra.entidades.UnidadeFederativa;
 import br.ufsc.ine.leb.projetos.estoria.Fixture;
 import br.ufsc.ine.leb.projetos.estoria.FixtureSetup;
 
