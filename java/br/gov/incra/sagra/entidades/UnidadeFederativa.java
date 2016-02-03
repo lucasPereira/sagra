@@ -20,7 +20,7 @@ public class UnidadeFederativa {
 
 	@Override
 	public boolean equals(Object objeto) {
-		if (objeto instanceof UnidadeFederativa) {
+		if (objeto != null && objeto instanceof UnidadeFederativa) {
 			UnidadeFederativa outro = (UnidadeFederativa) objeto;
 			return sigla.equals(outro.sigla);
 		}

@@ -20,7 +20,7 @@ public class SuperintendenciaRegional {
 
 	@Override
 	public boolean equals(Object objeto) {
-		if (objeto instanceof SuperintendenciaRegional) {
+		if (objeto != null && objeto instanceof SuperintendenciaRegional) {
 			SuperintendenciaRegional outro = (SuperintendenciaRegional) objeto;
 			return nome.equals(outro.nome);
 		}
