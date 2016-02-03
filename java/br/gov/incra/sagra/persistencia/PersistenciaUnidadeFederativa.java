@@ -5,11 +5,11 @@ import java.util.List;
 
 import br.gov.incra.sagra.entidades.UnidadeFederativa;
 
-public class Persistencia {
+public class PersistenciaUnidadeFederativa {
 
 	private List<UnidadeFederativa> unidadesFederativas;
 
-	public Persistencia() {
+	public PersistenciaUnidadeFederativa() {
 		unidadesFederativas = new LinkedList<>();
 	}
 
