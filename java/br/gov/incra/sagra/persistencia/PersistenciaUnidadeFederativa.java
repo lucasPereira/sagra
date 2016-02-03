@@ -19,8 +19,7 @@ public class PersistenciaUnidadeFederativa {
 	public OperacaoDePersistencia<String> cadastrar(UnidadeFederativa unidade) {
 		if (!unidades.contains(unidade)) {
 			unidades.add(unidade);
-			String identificador = ambiente.obterGeradorDeIdentificador().gerar();
-			return new OperacaoDePersistencia<>(identificador);
+			return new OperacaoDePersistencia<>(ambiente.auxiliarGeradorDeIdentificador().gerar());
 		}
 		return new OperacaoDePersistencia<>();
 	}

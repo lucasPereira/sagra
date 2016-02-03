@@ -18,7 +18,7 @@ import br.ufsc.ine.leb.projetos.estoria.FixtureSetup;
 @FixtureSetup({ TesteAmbiente.class, TesteSantaCatarina.class, TesteMatoGrosso.class })
 public class TestePersistenciaUnidadeFederativa {
 
-	@Fixture private Ambiente ambienteDeTeste;
+	@Fixture private Ambiente ambiente;
 	@Fixture private UnidadeFederativa matoGrosso;
 	@Fixture private UnidadeFederativa santaCatarina;
 
@@ -27,7 +27,7 @@ public class TestePersistenciaUnidadeFederativa {
 
 	@Before
 	public void configurar() {
-		persistencia = new PersistenciaUnidadeFederativa(ambienteDeTeste);
+		persistencia = ambiente.persistenciaUnidadeFederativa();
 		operacao = persistencia.cadastrar(santaCatarina);
 	}
 

@@ -18,7 +18,7 @@ import br.ufsc.ine.leb.projetos.estoria.FixtureSetup;
 @FixtureSetup({ TesteAmbiente.class, TesteSr10.class, TesteSr13.class })
 public class TestePersistenciaSuperintendenciaRegional {
 
-	@Fixture private Ambiente ambienteDeTeste;
+	@Fixture private Ambiente ambiente;
 	@Fixture private SuperintendenciaRegional sr10;
 	@Fixture private SuperintendenciaRegional sr13;
 
@@ -27,7 +27,7 @@ public class TestePersistenciaSuperintendenciaRegional {
 
 	@Before
 	public void configurar() {
-		persistencia = new PersistenciaSuperintendenciaRegional(ambienteDeTeste);
+		persistencia = ambiente.persistenciaSuperintendenciaRegional();
 		operacao = persistencia.cadastrar(sr10);
 	}
 
