@@ -4,21 +4,25 @@ import java.util.LinkedList;
 import java.util.List;
 
 import br.gov.incra.sagra.entidades.UnidadeFederativa;
+import br.gov.incra.sagra.infraestrutura.Ambiente;
 
 public class PersistenciaUnidadeFederativa {
 
-	private List<UnidadeFederativa> unidadesFederativas;
+	private Ambiente ambiente;
+	private List<UnidadeFederativa> unidades;
 
-	public PersistenciaUnidadeFederativa() {
-		unidadesFederativas = new LinkedList<>();
+	public PersistenciaUnidadeFederativa(Ambiente ambiente) {
+		this.ambiente = ambiente;
+		this.unidades = new LinkedList<>();
 	}
 
-	public Boolean cadastrarUnidadeFederativa(UnidadeFederativa unidadeFederativa) {
-		if (!unidadesFederativas.contains(unidadeFederativa)) {
-			unidadesFederativas.add(unidadeFederativa);
-			return true;
+	public OperacaoDePersistencia<String> cadastrar(UnidadeFederativa unidade) {
+		if (!unidades.contains(unidade)) {
+			unidades.add(unidade);
+			String identificador = ambiente.obterGeradorDeIdentificador().gerar();
+			return new OperacaoDePersistencia<>(identificador);
 		}
-		return false;
+		return new OperacaoDePersistencia<>();
 	}
 
 }
