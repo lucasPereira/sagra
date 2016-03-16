@@ -9,19 +9,22 @@ import br.gov.incra.sagra.infraestrutura.Ambiente;
 public class PersistenciaUnidadeFederativa {
 
 	private Ambiente ambiente;
-	private List<UnidadeFederativa> unidades;
+	private List<Registro<UnidadeFederativa>> registros;
 
 	public PersistenciaUnidadeFederativa(Ambiente ambiente) {
 		this.ambiente = ambiente;
-		this.unidades = new LinkedList<>();
+		this.registros = new LinkedList<>();
 	}
 
-	public OperacaoDePersistencia<String> cadastrar(UnidadeFederativa unidade) {
-		if (!unidades.contains(unidade)) {
-			unidades.add(unidade);
-			return new OperacaoDePersistencia<>(ambiente.auxiliarGeradorDeIdentificador().gerar());
-		}
-		return new OperacaoDePersistencia<>();
+	public OperacaoDePersistencia<String> cadastrar(UnidadeFederativa entidade) {
+		String identificador = ambiente.auxiliarGeradorDeIdentificador().gerar();
+		Registro<UnidadeFederativa> registro = new Registro<>(identificador, entidade);
+		registros.add(registro);
+		return new OperacaoDePersistencia<>(identificador);
+	}
+
+	public OperacaoDePersistencia<List<Registro<UnidadeFederativa>>> listar() {
+		return new OperacaoDePersistencia<>(registros);
 	}
 
 }

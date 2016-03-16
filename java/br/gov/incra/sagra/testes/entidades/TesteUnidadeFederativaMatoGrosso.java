@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import br.gov.incra.sagra.entidades.UnidadeFederativa;
 
-public class TesteMatoGrosso {
+public class TesteUnidadeFederativaMatoGrosso {
 
 	private UnidadeFederativa matoGrosso;
 
@@ -17,15 +17,27 @@ public class TesteMatoGrosso {
 	}
 
 	@Test
-	public void testar() throws Exception {
+	public void entidade() throws Exception {
 		assertEquals("Mato Grosso", matoGrosso.obterNome());
 		assertEquals("MT", matoGrosso.obterSigla());
 	}
 
 	@Test
-	public void igualdade() throws Exception {
+	public void iguais() throws Exception {
 		UnidadeFederativa matoGrossoClone = new UnidadeFederativa("Mato Grosso", "MT");
 		assertEquals(matoGrosso, matoGrossoClone);
+	}
+
+	@Test
+	public void nomesDiferentes() throws Exception {
+		UnidadeFederativa matoGrossoClone = new UnidadeFederativa("Santa Catarina", "MT");
+		assertNotEquals(matoGrosso, matoGrossoClone);
+	}
+
+	@Test
+	public void siglasDiferentes() throws Exception {
+		UnidadeFederativa matoGrossoClone = new UnidadeFederativa("Mato Grosso", "SC");
+		assertNotEquals(matoGrosso, matoGrossoClone);
 	}
 
 	@Test

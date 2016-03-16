@@ -8,7 +8,7 @@ import br.gov.incra.sagra.entidades.UnidadeFederativa;
 import br.ufsc.ine.leb.projetos.estoria.Fixture;
 import br.ufsc.ine.leb.projetos.estoria.FixtureSetup;
 
-@FixtureSetup({ TesteSantaCatarina.class, TesteMatoGrosso.class })
+@FixtureSetup({ TesteUnidadeFederativaSantaCatarina.class, TesteUnidadeFederativaMatoGrosso.class })
 public class TesteSuperintendenciaRegional {
 
 	@Fixture private UnidadeFederativa santaCatarina;

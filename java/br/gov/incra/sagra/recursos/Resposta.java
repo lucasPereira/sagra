@@ -12,6 +12,14 @@ public class Resposta<T> {
 		this.entidade = entidade;
 	}
 
+	public Resposta(CodigoDeEstado codigo, T entidade) {
+		this(codigo, null, entidade);
+	}
+
+	public Resposta(CodigoDeEstado codigo) {
+		this(codigo, null, null);
+	}
+
 	public CodigoDeEstado codigoDeEstado() {
 		return codigo;
 	}

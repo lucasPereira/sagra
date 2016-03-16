@@ -17,11 +17,8 @@ public class PersistenciaSuperintendenciaRegional {
 	}
 
 	public OperacaoDePersistencia<String> cadastrar(SuperintendenciaRegional superintendencia) {
-		if (!superintendencias.contains(superintendencia)) {
-			superintendencias.add(superintendencia);
-			return new OperacaoDePersistencia<>(ambiente.auxiliarGeradorDeIdentificador().gerar());
-		}
-		return new OperacaoDePersistencia<>();
+		superintendencias.add(superintendencia);
+		return new OperacaoDePersistencia<>(ambiente.auxiliarGeradorDeIdentificador().gerar());
 	}
 
 }

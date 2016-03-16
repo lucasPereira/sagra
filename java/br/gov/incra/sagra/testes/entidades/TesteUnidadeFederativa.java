@@ -8,7 +8,7 @@ import br.gov.incra.sagra.entidades.SuperintendenciaRegional;
 import br.ufsc.ine.leb.projetos.estoria.Fixture;
 import br.ufsc.ine.leb.projetos.estoria.FixtureSetup;
 
-@FixtureSetup({ TesteSr10.class, TesteSr13.class })
+@FixtureSetup({ TesteSuperintendenciaRegional10.class, TesteSuperintendenciaRegional13.class })
 public class TesteUnidadeFederativa {
 
 	@Fixture private SuperintendenciaRegional sr10;

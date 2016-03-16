@@ -2,6 +2,6 @@ package br.gov.incra.sagra.recursos;
 
 public enum CodigoDeEstado {
 
-	HTTP201
+	HTTP200, HTTP201, HTTP400
 
 }

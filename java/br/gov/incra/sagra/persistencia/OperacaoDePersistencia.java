@@ -16,7 +16,7 @@ public class OperacaoDePersistencia<T> {
 		return (valor != null);
 	}
 
-	public T obterValor() {
+	public T obterResultado() {
 		return valor;
 	}
 

@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import br.gov.incra.sagra.entidades.UnidadeFederativa;
 
-public class TesteSantaCatarina {
+public class TesteUnidadeFederativaSantaCatarina {
 
 	private UnidadeFederativa santaCatarina;
 
@@ -17,15 +17,27 @@ public class TesteSantaCatarina {
 	}
 
 	@Test
-	public void testar() throws Exception {
+	public void entidade() throws Exception {
 		assertEquals("Santa Catarina", santaCatarina.obterNome());
 		assertEquals("SC", santaCatarina.obterSigla());
 	}
 
 	@Test
-	public void igualdade() {
+	public void iguais() {
 		UnidadeFederativa santaCatarinaClone = new UnidadeFederativa("Santa Catarina", "SC");
 		assertEquals(santaCatarina, santaCatarinaClone);
+	}
+
+	@Test
+	public void nomesDiferentes() {
+		UnidadeFederativa santaCatarinaClone = new UnidadeFederativa("Mato Grosso", "SC");
+		assertNotEquals(santaCatarina, santaCatarinaClone);
+	}
+
+	@Test
+	public void siglasDiferentes() {
+		UnidadeFederativa santaCatarinaClone = new UnidadeFederativa("Santa Catarina", "MT");
+		assertNotEquals(santaCatarina, santaCatarinaClone);
 	}
 
 	@Test

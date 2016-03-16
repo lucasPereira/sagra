@@ -22,7 +22,9 @@ public class UnidadeFederativa {
 	public boolean equals(Object objeto) {
 		if (objeto != null && objeto instanceof UnidadeFederativa) {
 			UnidadeFederativa outro = (UnidadeFederativa) objeto;
-			return sigla.equals(outro.sigla);
+			Boolean nomeIgual = nome.equals(outro.nome);
+			Boolean siglaIgual = sigla.equals(outro.sigla);
+			return nomeIgual && siglaIgual;
 		}
 		return false;
 	}

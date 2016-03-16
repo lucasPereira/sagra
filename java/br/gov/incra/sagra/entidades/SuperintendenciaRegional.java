@@ -22,7 +22,9 @@ public class SuperintendenciaRegional {
 	public boolean equals(Object objeto) {
 		if (objeto != null && objeto instanceof SuperintendenciaRegional) {
 			SuperintendenciaRegional outro = (SuperintendenciaRegional) objeto;
-			return nome.equals(outro.nome);
+			Boolean nomeIgual = nome.equals(outro.nome);
+			Boolean unidadeFederativaIgual = unidadeFederativa.equals(outro.unidadeFederativa);
+			return nomeIgual && unidadeFederativaIgual;
 		}
 		return false;
 	}

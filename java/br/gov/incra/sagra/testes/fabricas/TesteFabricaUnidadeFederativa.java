@@ -7,11 +7,11 @@ import org.junit.Test;
 
 import br.gov.incra.sagra.entidades.UnidadeFederativa;
 import br.gov.incra.sagra.fabricas.FabricaUnidadeFederativa;
-import br.gov.incra.sagra.testes.entidades.TesteSantaCatarina;
+import br.gov.incra.sagra.testes.entidades.TesteUnidadeFederativaSantaCatarina;
 import br.ufsc.ine.leb.projetos.estoria.Fixture;
 import br.ufsc.ine.leb.projetos.estoria.FixtureSetup;
 
-@FixtureSetup(TesteSantaCatarina.class)
+@FixtureSetup(TesteUnidadeFederativaSantaCatarina.class)
 public class TesteFabricaUnidadeFederativa {
 
 	@Fixture private UnidadeFederativa santaCatarina;
@@ -88,7 +88,7 @@ public class TesteFabricaUnidadeFederativa {
 	}
 
 	@Test
-	public void nomeComMultiplosEspacosNumero() throws Exception {
+	public void nomeComMultiplosEspacos() throws Exception {
 		fabrica.comNome("São  Paulo");
 		fabrica.comSigla("SP");
 		assertFalse(fabrica.validarDados());
