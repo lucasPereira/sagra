@@ -1,20 +1,20 @@
 package br.gov.incra.sagra.persistencia;
 
-public class Registro<T> {
+public class Documento<T> {
 
 	private String identificador;
 	private T entidade;
 
-	public Registro(String identificador, T entidade) {
+	public Documento(String identificador, T entidade) {
 		this.identificador = identificador;
 		this.entidade = entidade;
 	}
 
-	public String obterIdentificador() {
+	public String identificador() {
 		return identificador;
 	}
 
-	public T obterEntidade() {
+	public T entidade() {
 		return entidade;
 	}
 

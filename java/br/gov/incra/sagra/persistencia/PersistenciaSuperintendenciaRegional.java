@@ -6,19 +6,22 @@ import java.util.List;
 import br.gov.incra.sagra.entidades.SuperintendenciaRegional;
 import br.gov.incra.sagra.infraestrutura.Ambiente;
 
-public class PersistenciaSuperintendenciaRegional {
+public class PersistenciaSuperintendenciaRegional implements Persistencia<SuperintendenciaRegional> {
 
 	private Ambiente ambiente;
-	private List<SuperintendenciaRegional> superintendencias;
+	private List<Documento<SuperintendenciaRegional>> superintendencias;
 
 	public PersistenciaSuperintendenciaRegional(Ambiente ambiente) {
 		this.ambiente = ambiente;
 		this.superintendencias = new LinkedList<>();
 	}
 
-	public OperacaoDePersistencia<String> cadastrar(SuperintendenciaRegional superintendencia) {
-		superintendencias.add(superintendencia);
-		return new OperacaoDePersistencia<>(ambiente.auxiliarGeradorDeIdentificador().gerar());
+	@Override
+	public RespostaPersistencia<SuperintendenciaRegional> cadastrar(SuperintendenciaRegional entidade) {
+		String identificador = ambiente.auxiliarGeradorDeIdentificador().gerar();
+		RespostaPersistencia<SuperintendenciaRegional> resposta = new RespostaPersistencia<>(identificador, entidade);
+		superintendencias.add(resposta.documento());
+		return resposta;
 	}
 
 }

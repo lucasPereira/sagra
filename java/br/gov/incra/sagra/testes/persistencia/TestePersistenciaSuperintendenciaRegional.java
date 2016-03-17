@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import br.gov.incra.sagra.entidades.SuperintendenciaRegional;
 import br.gov.incra.sagra.infraestrutura.Ambiente;
-import br.gov.incra.sagra.persistencia.OperacaoDePersistencia;
+import br.gov.incra.sagra.persistencia.RespostaPersistencia;
 import br.gov.incra.sagra.persistencia.PersistenciaSuperintendenciaRegional;
 import br.gov.incra.sagra.testes.entidades.TesteSuperintendenciaRegional10;
 import br.gov.incra.sagra.testes.entidades.TesteSuperintendenciaRegional13;
@@ -23,27 +23,36 @@ public class TestePersistenciaSuperintendenciaRegional {
 	@Fixture private SuperintendenciaRegional sr13;
 
 	private PersistenciaSuperintendenciaRegional persistencia;
-	private OperacaoDePersistencia<String> operacaoCadastrarSr10;
 
 	@Before
 	public void configurar() {
 		persistencia = ambiente.persistenciaSuperintendenciaRegional();
-		operacaoCadastrarSr10 = persistencia.cadastrar(sr10);
 	}
 
 	@Test
 	public void cadastrarSr10() throws Exception {
-		assertEquals("1", operacaoCadastrarSr10.obterResultado());
+		RespostaPersistencia<?> resposta = persistencia.cadastrar(sr10);
+		assertTrue(resposta.sucesso());
+		assertEquals("1", resposta.documento().identificador());
+		assertEquals(sr10, resposta.documento().entidade());
 	}
 
 	@Test
 	public void cadastrarSr13() throws Exception {
-		assertEquals("2", persistencia.cadastrar(sr13).obterResultado());
+		persistencia.cadastrar(sr10);
+		RespostaPersistencia<?> resposta = persistencia.cadastrar(sr13);
+		assertTrue(resposta.sucesso());
+		assertEquals("2", resposta.documento().identificador());
+		assertEquals(sr13, resposta.documento().entidade());
 	}
 
 	@Test
 	public void cadastrarSr10Repetida() throws Exception {
-		assertEquals("2", persistencia.cadastrar(sr10).obterResultado());
+		persistencia.cadastrar(sr10);
+		RespostaPersistencia<?> resposta = persistencia.cadastrar(sr10);
+		assertTrue(resposta.sucesso());
+		assertEquals("2", resposta.documento().identificador());
+		assertEquals(sr10, resposta.documento().entidade());
 	}
 
 }

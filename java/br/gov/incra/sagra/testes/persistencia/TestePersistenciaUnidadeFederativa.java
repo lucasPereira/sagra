@@ -2,16 +2,13 @@ package br.gov.incra.sagra.testes.persistencia;
 
 import static org.junit.Assert.*;
 
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 
 import br.gov.incra.sagra.entidades.UnidadeFederativa;
 import br.gov.incra.sagra.infraestrutura.Ambiente;
-import br.gov.incra.sagra.persistencia.OperacaoDePersistencia;
 import br.gov.incra.sagra.persistencia.PersistenciaUnidadeFederativa;
-import br.gov.incra.sagra.persistencia.Registro;
+import br.gov.incra.sagra.persistencia.RespostaPersistencia;
 import br.gov.incra.sagra.testes.entidades.TesteUnidadeFederativaMatoGrosso;
 import br.gov.incra.sagra.testes.entidades.TesteUnidadeFederativaSantaCatarina;
 import br.gov.incra.sagra.testes.infraestrutura.TesteAmbiente;
@@ -26,35 +23,36 @@ public class TestePersistenciaUnidadeFederativa {
 	@Fixture private UnidadeFederativa santaCatarina;
 
 	private PersistenciaUnidadeFederativa persistencia;
-	private OperacaoDePersistencia<String> operacaoCadastrarSantaCatarina;
 
 	@Before
 	public void configurar() {
 		persistencia = ambiente.persistenciaUnidadeFederativa();
-		operacaoCadastrarSantaCatarina = persistencia.cadastrar(santaCatarina);
 	}
 
 	@Test
 	public void cadastrarSantaCatarina() throws Exception {
-		assertEquals("1", operacaoCadastrarSantaCatarina.obterResultado());
+		RespostaPersistencia<?> resposta = persistencia.cadastrar(santaCatarina);
+		assertTrue(resposta.sucesso());
+		assertEquals("1", resposta.documento().identificador());
+		assertEquals(santaCatarina, resposta.documento().entidade());
 	}
 
 	@Test
 	public void cadastrarMatoGrosso() throws Exception {
-		assertEquals("2", persistencia.cadastrar(matoGrosso).obterResultado());
+		persistencia.cadastrar(santaCatarina);
+		RespostaPersistencia<?> resposta = persistencia.cadastrar(matoGrosso);
+		assertTrue(resposta.sucesso());
+		assertEquals("2", resposta.documento().identificador());
+		assertEquals(matoGrosso, resposta.documento().entidade());
 	}
 
 	@Test
 	public void cadastrarSantaCatarinaRepetida() throws Exception {
-		assertEquals("2", persistencia.cadastrar(santaCatarina).obterResultado());
-	}
-
-	@Test
-	public void listar() throws Exception {
-		List<Registro<UnidadeFederativa>> resultado = persistencia.listar().obterResultado();
-		assertEquals(1, resultado.size());
-		assertEquals("1", resultado.get(0).obterIdentificador());
-		assertEquals(santaCatarina, resultado.get(0).obterEntidade());
+		persistencia.cadastrar(santaCatarina);
+		RespostaPersistencia<?> resposta = persistencia.cadastrar(santaCatarina);
+		assertTrue(resposta.sucesso());
+		assertEquals("2", resposta.documento().identificador());
+		assertEquals(santaCatarina, resposta.documento().entidade());
 	}
 
 }

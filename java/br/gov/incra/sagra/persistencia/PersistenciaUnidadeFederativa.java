@@ -6,25 +6,22 @@ import java.util.List;
 import br.gov.incra.sagra.entidades.UnidadeFederativa;
 import br.gov.incra.sagra.infraestrutura.Ambiente;
 
-public class PersistenciaUnidadeFederativa {
+public class PersistenciaUnidadeFederativa implements Persistencia<UnidadeFederativa> {
 
 	private Ambiente ambiente;
-	private List<Registro<UnidadeFederativa>> registros;
+	private List<Documento<UnidadeFederativa>> docuentos;
 
 	public PersistenciaUnidadeFederativa(Ambiente ambiente) {
 		this.ambiente = ambiente;
-		this.registros = new LinkedList<>();
+		this.docuentos = new LinkedList<>();
 	}
 
-	public OperacaoDePersistencia<String> cadastrar(UnidadeFederativa entidade) {
+	@Override
+	public RespostaPersistencia<UnidadeFederativa> cadastrar(UnidadeFederativa entidade) {
 		String identificador = ambiente.auxiliarGeradorDeIdentificador().gerar();
-		Registro<UnidadeFederativa> registro = new Registro<>(identificador, entidade);
-		registros.add(registro);
-		return new OperacaoDePersistencia<>(identificador);
-	}
-
-	public OperacaoDePersistencia<List<Registro<UnidadeFederativa>>> listar() {
-		return new OperacaoDePersistencia<>(registros);
+		RespostaPersistencia<UnidadeFederativa> resposta = new RespostaPersistencia<>(identificador, entidade);
+		docuentos.add(resposta.documento());
+		return resposta;
 	}
 
 }
