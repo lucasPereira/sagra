@@ -30,7 +30,7 @@ public class TestePersistenciaSuperintendenciaRegional {
 	}
 
 	@Test
-	public void cadastrarSr10() throws Exception {
+	public void cadastrarUm() throws Exception {
 		RespostaPersistencia<?> resposta = persistencia.cadastrar(sr10);
 		assertTrue(resposta.sucesso());
 		assertEquals("1", resposta.documento().identificador());
@@ -38,7 +38,7 @@ public class TestePersistenciaSuperintendenciaRegional {
 	}
 
 	@Test
-	public void cadastrarSr13() throws Exception {
+	public void cadastrarDois() throws Exception {
 		persistencia.cadastrar(sr10);
 		RespostaPersistencia<?> resposta = persistencia.cadastrar(sr13);
 		assertTrue(resposta.sucesso());
@@ -47,7 +47,7 @@ public class TestePersistenciaSuperintendenciaRegional {
 	}
 
 	@Test
-	public void cadastrarSr10Repetida() throws Exception {
+	public void cadastrarDoisIguais() throws Exception {
 		persistencia.cadastrar(sr10);
 		RespostaPersistencia<?> resposta = persistencia.cadastrar(sr10);
 		assertTrue(resposta.sucesso());

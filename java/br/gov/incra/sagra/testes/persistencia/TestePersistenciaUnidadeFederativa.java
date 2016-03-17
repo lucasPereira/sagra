@@ -30,7 +30,7 @@ public class TestePersistenciaUnidadeFederativa {
 	}
 
 	@Test
-	public void cadastrarSantaCatarina() throws Exception {
+	public void cadastrarUm() throws Exception {
 		RespostaPersistencia<?> resposta = persistencia.cadastrar(santaCatarina);
 		assertTrue(resposta.sucesso());
 		assertEquals("1", resposta.documento().identificador());
@@ -38,7 +38,7 @@ public class TestePersistenciaUnidadeFederativa {
 	}
 
 	@Test
-	public void cadastrarMatoGrosso() throws Exception {
+	public void cadastrarDois() throws Exception {
 		persistencia.cadastrar(santaCatarina);
 		RespostaPersistencia<?> resposta = persistencia.cadastrar(matoGrosso);
 		assertTrue(resposta.sucesso());
@@ -47,7 +47,7 @@ public class TestePersistenciaUnidadeFederativa {
 	}
 
 	@Test
-	public void cadastrarSantaCatarinaRepetida() throws Exception {
+	public void cadastrarDoisIguais() throws Exception {
 		persistencia.cadastrar(santaCatarina);
 		RespostaPersistencia<?> resposta = persistencia.cadastrar(santaCatarina);
 		assertTrue(resposta.sucesso());
