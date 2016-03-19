@@ -9,26 +9,30 @@ import br.gov.incra.sagra.auxiliar.Entidade;
 
 public class TesteEntidade {
 
-	private Entidade entidade;
+	private Entidade entidade1;
+	private Entidade entidade2;
 
 	@Before
 	public void configurar() {
-		entidade = new Entidade("Nome");
+		entidade1 = new Entidade("Entidade 1");
+		entidade2 = new Entidade("Entidade 2");
 	}
 
 	@Test
 	public void entidade() throws Exception {
-		assertEquals("Nome", entidade.obterNome());
+		assertEquals("Entidade 1", entidade1.obterNome());
+		assertEquals("Entidade 2", entidade2.obterNome());
 	}
 
 	@Test
 	public void iguais() throws Exception {
-		assertEquals(new Entidade("Nome"), entidade);
+		assertEquals(new Entidade("Entidade 1"), entidade1);
+		assertEquals(new Entidade("Entidade 2"), entidade2);
 	}
 
 	@Test
 	public void diferentes() throws Exception {
-		assertNotEquals(new Entidade("Emon"), entidade);
+		assertNotEquals(entidade1, entidade2);
 	}
 
 }

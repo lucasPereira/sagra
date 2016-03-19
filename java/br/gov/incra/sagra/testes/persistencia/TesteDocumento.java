@@ -13,13 +13,13 @@ import br.ufsc.ine.leb.projetos.estoria.FixtureSetup;
 @FixtureSetup(TesteEntidade.class)
 public class TesteDocumento {
 
-	@Fixture private Entidade entidade;
+	@Fixture private Entidade entidade1;
 
 	@Test
 	public void testar() throws Exception {
-		Documento<Entidade> documento = new Documento<>("1", entidade);
+		Documento<Entidade> documento = new Documento<>("1", entidade1);
 		assertEquals("1", documento.identificador());
-		assertEquals(entidade, documento.entidade());
+		assertEquals(entidade1, documento.entidade());
 	}
 
 }

@@ -26,7 +26,7 @@ public class UnidadeFederativa {
 			Boolean siglaIgual = sigla.equals(outro.sigla);
 			return nomeIgual && siglaIgual;
 		}
-		return false;
+		return super.equals(objeto);
 	}
 
 	@Override

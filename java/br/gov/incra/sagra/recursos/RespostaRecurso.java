@@ -1,13 +1,13 @@
 package br.gov.incra.sagra.recursos;
 
-public class RespostaRecurso<T> {
+public class RespostaRecurso<T extends Representacao> {
 
+	private T representacao;
 	private CodigoDeEstado codigo;
-	private Representacao<T> representacao;
 
-	public RespostaRecurso(CodigoDeEstado codigo, String uri, T entidade) {
+	public RespostaRecurso(CodigoDeEstado codigo, T representacao) {
 		this.codigo = codigo;
-		this.representacao = new Representacao<T>(uri, entidade);
+		this.representacao = representacao;
 	}
 
 	public RespostaRecurso(CodigoDeEstado codigo) {
@@ -19,7 +19,7 @@ public class RespostaRecurso<T> {
 		return codigo;
 	}
 
-	public Representacao<T> representacao() {
+	public T representacao() {
 		return representacao;
 	}
 

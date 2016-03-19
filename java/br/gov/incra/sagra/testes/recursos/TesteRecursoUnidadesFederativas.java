@@ -9,6 +9,8 @@ import br.gov.incra.sagra.entidades.UnidadeFederativa;
 import br.gov.incra.sagra.infraestrutura.Ambiente;
 import br.gov.incra.sagra.recursos.CodigoDeEstado;
 import br.gov.incra.sagra.recursos.RecursoUnidadesFederativas;
+import br.gov.incra.sagra.recursos.RepresentacaoColecao;
+import br.gov.incra.sagra.recursos.RepresentacaoEntidade;
 import br.gov.incra.sagra.recursos.RespostaRecurso;
 import br.gov.incra.sagra.testes.entidades.TesteUnidadeFederativaMatoGrosso;
 import br.gov.incra.sagra.testes.entidades.TesteUnidadeFederativaSantaCatarina;
@@ -32,7 +34,7 @@ public class TesteRecursoUnidadesFederativas {
 
 	@Test
 	public void postUm() throws Exception {
-		RespostaRecurso<?> resposta = recurso.post("Santa Catarina", "SC");
+		RespostaRecurso<RepresentacaoEntidade<UnidadeFederativa>> resposta = recurso.post("Santa Catarina", "SC");
 		assertEquals(CodigoDeEstado.HTTP201, resposta.codigoDeEstado());
 		assertEquals("/unidadeFederativa/1", resposta.representacao().uri());
 		assertEquals(santaCatarina, resposta.representacao().entidade());
@@ -41,7 +43,7 @@ public class TesteRecursoUnidadesFederativas {
 	@Test
 	public void postDois() throws Exception {
 		recurso.post("Santa Catarina", "SC");
-		RespostaRecurso<?> resposta = ambiente.recursoUnidadesFederativas().post("Mato Grosso", "MT");
+		RespostaRecurso<RepresentacaoEntidade<UnidadeFederativa>> resposta = recurso.post("Mato Grosso", "MT");
 		assertEquals(CodigoDeEstado.HTTP201, resposta.codigoDeEstado());
 		assertEquals("/unidadeFederativa/2", resposta.representacao().uri());
 		assertEquals(matoGrosso, resposta.representacao().entidade());
@@ -50,7 +52,7 @@ public class TesteRecursoUnidadesFederativas {
 	@Test
 	public void postDoisIguais() throws Exception {
 		recurso.post("Santa Catarina", "SC");
-		RespostaRecurso<?> resposta = ambiente.recursoUnidadesFederativas().post("Santa Catarina", "SC");
+		RespostaRecurso<RepresentacaoEntidade<UnidadeFederativa>> resposta = recurso.post("Santa Catarina", "SC");
 		assertEquals(CodigoDeEstado.HTTP201, resposta.codigoDeEstado());
 		assertEquals("/unidadeFederativa/2", resposta.representacao().uri());
 		assertEquals(santaCatarina, resposta.representacao().entidade());
@@ -58,9 +60,30 @@ public class TesteRecursoUnidadesFederativas {
 
 	@Test
 	public void postUmInvalido() throws Exception {
-		RespostaRecurso<?> resposta = ambiente.recursoUnidadesFederativas().post("Santa Catarina", "");
+		RespostaRecurso<RepresentacaoEntidade<UnidadeFederativa>> resposta = recurso.post("Santa Catarina", "");
 		assertEquals(CodigoDeEstado.HTTP400, resposta.codigoDeEstado());
 		assertNull(resposta.representacao());
+	}
+
+	@Test
+	public void getComZero() throws Exception {
+		recurso.post("Santa Catarina", "SC");
+		RespostaRecurso<RepresentacaoColecao<UnidadeFederativa>> resposta = ambiente.recursoUnidadesFederativas().get();
+		assertEquals(CodigoDeEstado.HTTP200, resposta.codigoDeEstado());
+		assertEquals("/unidadesFederativas", resposta.representacao().uri());
+		assertEquals(0, resposta.representacao().tamanho());
+	}
+
+	@Test
+	public void getComDois() throws Exception {
+		recurso.post("Santa Catarina", "SC");
+		recurso.post("Mato Grosso", "MT");
+		RespostaRecurso<RepresentacaoColecao<UnidadeFederativa>> resposta = ambiente.recursoUnidadesFederativas().get();
+		assertEquals(CodigoDeEstado.HTTP200, resposta.codigoDeEstado());
+		assertEquals("/unidadesFederativas", resposta.representacao().uri());
+		assertEquals(2, resposta.representacao().tamanho());
+		assertEquals(matoGrosso, resposta.representacao().entidade(0));
+		assertEquals(santaCatarina, resposta.representacao().entidade(1));
 	}
 
 }

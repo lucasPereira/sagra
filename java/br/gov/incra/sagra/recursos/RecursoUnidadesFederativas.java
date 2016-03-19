@@ -1,8 +1,11 @@
 package br.gov.incra.sagra.recursos;
 
+import java.util.Arrays;
+
 import br.gov.incra.sagra.entidades.UnidadeFederativa;
 import br.gov.incra.sagra.fabricas.FabricaUnidadeFederativa;
 import br.gov.incra.sagra.infraestrutura.Ambiente;
+import br.gov.incra.sagra.persistencia.Documento;
 import br.gov.incra.sagra.persistencia.RespostaPersistencia;
 
 public class RecursoUnidadesFederativas {
@@ -13,16 +16,24 @@ public class RecursoUnidadesFederativas {
 		this.ambiente = ambiente;
 	}
 
-	public RespostaRecurso<UnidadeFederativa> post(String nome, String sigla) {
+	public RespostaRecurso<RepresentacaoEntidade<UnidadeFederativa>> post(String nome, String sigla) {
 		FabricaUnidadeFederativa fabrica = new FabricaUnidadeFederativa();
 		fabrica.comNome(nome);
 		fabrica.comSigla(sigla);
 		if (!fabrica.validarDados()) {
-			return new RespostaRecurso<UnidadeFederativa>(CodigoDeEstado.HTTP400);
+			return new RespostaRecurso<>(CodigoDeEstado.HTTP400);
 		}
 		RespostaPersistencia<UnidadeFederativa> persistencia = ambiente.persistenciaUnidadeFederativa().cadastrar(fabrica.construir());
-		String uri = String.format("/unidadeFederativa/%s", persistencia.documento().identificador());
-		return new RespostaRecurso<UnidadeFederativa>(CodigoDeEstado.HTTP201, uri, persistencia.documento().entidade());
+		Documento<UnidadeFederativa> documento = persistencia.documento();
+		String uri = String.format("/unidadeFederativa/%s", documento.identificador());
+		UnidadeFederativa entidade = documento.entidade();
+		RepresentacaoEntidade<UnidadeFederativa> representacao = new RepresentacaoEntidade<>(uri, entidade);
+		return new RespostaRecurso<>(CodigoDeEstado.HTTP201, representacao);
+	}
+
+	public RespostaRecurso<RepresentacaoColecao<UnidadeFederativa>> get() {
+		RepresentacaoColecao<UnidadeFederativa> representacao = new RepresentacaoColecao<>("/unidadesFederativas", Arrays.asList());
+		return new RespostaRecurso<>(CodigoDeEstado.HTTP200, representacao);
 	}
 
 }

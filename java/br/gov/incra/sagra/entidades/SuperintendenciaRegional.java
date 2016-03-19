@@ -26,7 +26,7 @@ public class SuperintendenciaRegional {
 			Boolean unidadeFederativaIgual = unidadeFederativa.equals(outro.unidadeFederativa);
 			return nomeIgual && unidadeFederativaIgual;
 		}
-		return false;
+		return super.equals(objeto);
 	}
 
 	@Override
