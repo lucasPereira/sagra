@@ -1,5 +1,7 @@
 package br.gov.incra.sagra.persistencia;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,19 +11,33 @@ import br.gov.incra.sagra.infraestrutura.Ambiente;
 public class PersistenciaUnidadeFederativa implements Persistencia<UnidadeFederativa> {
 
 	private Ambiente ambiente;
-	private List<Documento<UnidadeFederativa>> docuentos;
+	private List<Documento<UnidadeFederativa>> documentos;
 
 	public PersistenciaUnidadeFederativa(Ambiente ambiente) {
 		this.ambiente = ambiente;
-		this.docuentos = new LinkedList<>();
+		this.documentos = new LinkedList<>();
 	}
 
 	@Override
-	public RespostaPersistencia<UnidadeFederativa> cadastrar(UnidadeFederativa entidade) {
+	public RespostaPersistenciaEntidade<UnidadeFederativa> cadastrar(UnidadeFederativa entidade) {
 		String identificador = ambiente.auxiliarGeradorDeIdentificador().gerar();
-		RespostaPersistencia<UnidadeFederativa> resposta = new RespostaPersistencia<>(identificador, entidade);
-		docuentos.add(resposta.documento());
+		Documento<UnidadeFederativa> documento = new Documento<>(identificador, entidade);
+		RespostaPersistenciaEntidade<UnidadeFederativa> resposta = new RespostaPersistenciaEntidade<>(documento);
+		documentos.add(resposta.documento());
 		return resposta;
+	}
+
+	@Override
+	public RespostaPersistenciaColecao<UnidadeFederativa> listar() {
+		Collections.sort(documentos, new Comparator<Documento<UnidadeFederativa>>() {
+
+			@Override
+			public int compare(Documento<UnidadeFederativa> documento1, Documento<UnidadeFederativa> documento2) {
+				return documento1.entidade().obterSigla().compareTo(documento2.entidade().obterSigla());
+			}
+
+		});
+		return new RespostaPersistenciaColecao<>(documentos);
 	}
 
 }

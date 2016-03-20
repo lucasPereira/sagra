@@ -1,12 +1,14 @@
 package br.gov.incra.sagra.recursos;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.gov.incra.sagra.entidades.UnidadeFederativa;
 import br.gov.incra.sagra.fabricas.FabricaUnidadeFederativa;
 import br.gov.incra.sagra.infraestrutura.Ambiente;
 import br.gov.incra.sagra.persistencia.Documento;
-import br.gov.incra.sagra.persistencia.RespostaPersistencia;
+import br.gov.incra.sagra.persistencia.RespostaPersistenciaColecao;
+import br.gov.incra.sagra.persistencia.RespostaPersistenciaEntidade;
 
 public class RecursoUnidadesFederativas {
 
@@ -23,8 +25,8 @@ public class RecursoUnidadesFederativas {
 		if (!fabrica.validarDados()) {
 			return new RespostaRecurso<>(CodigoDeEstado.HTTP400);
 		}
-		RespostaPersistencia<UnidadeFederativa> persistencia = ambiente.persistenciaUnidadeFederativa().cadastrar(fabrica.construir());
-		Documento<UnidadeFederativa> documento = persistencia.documento();
+		RespostaPersistenciaEntidade<UnidadeFederativa> resposta = ambiente.persistenciaUnidadeFederativa().cadastrar(fabrica.construir());
+		Documento<UnidadeFederativa> documento = resposta.documento();
 		String uri = String.format("/unidadeFederativa/%s", documento.identificador());
 		UnidadeFederativa entidade = documento.entidade();
 		RepresentacaoEntidade<UnidadeFederativa> representacao = new RepresentacaoEntidade<>(uri, entidade);
@@ -32,7 +34,16 @@ public class RecursoUnidadesFederativas {
 	}
 
 	public RespostaRecurso<RepresentacaoColecao<UnidadeFederativa>> get() {
-		RepresentacaoColecao<UnidadeFederativa> representacao = new RepresentacaoColecao<>("/unidadesFederativas", Arrays.asList());
+		RespostaPersistenciaColecao<UnidadeFederativa> resposta = ambiente.persistenciaUnidadeFederativa().listar();
+		Integer tamanho = resposta.tamanho();
+		List<RepresentacaoEntidade<UnidadeFederativa>> representacoes = new ArrayList<>(tamanho);
+		for (Integer contador = 0; contador < tamanho; contador++) {
+			Documento<UnidadeFederativa> documento = resposta.documento(contador);
+			String uri = String.format("/unidadeFederativa/%s", documento.identificador());
+			RepresentacaoEntidade<UnidadeFederativa> representacao = new RepresentacaoEntidade<UnidadeFederativa>(uri, documento.entidade());
+			representacoes.add(representacao);
+		}
+		RepresentacaoColecao<UnidadeFederativa> representacao = new RepresentacaoColecao<>("/unidadesFederativas", representacoes);
 		return new RespostaRecurso<>(CodigoDeEstado.HTTP200, representacao);
 	}
 

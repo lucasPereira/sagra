@@ -21,7 +21,7 @@ public class RepresentacaoColecao<T> implements Representacao {
 		return representacoes.size();
 	}
 
-	public RepresentacaoEntidade<T> entidade(Integer indice) {
+	public RepresentacaoEntidade<T> representacao(Integer indice) {
 		return representacoes.get(indice);
 	}
 

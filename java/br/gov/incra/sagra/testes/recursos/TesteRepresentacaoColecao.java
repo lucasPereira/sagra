@@ -26,6 +26,8 @@ public class TesteRepresentacaoColecao {
 	public void configurar() {
 		representacaoColecaoComZero = new RepresentacaoColecao<>("/recursos", Arrays.asList());
 		representacaoColecaoComDois = new RepresentacaoColecao<>("/recursos", Arrays.asList(representacaoEntidade1, representacaoEntidade2));
+		assertNotNull(representacaoEntidade1);
+		assertNotNull(representacaoEntidade2);
 	}
 
 	@Test
@@ -38,8 +40,8 @@ public class TesteRepresentacaoColecao {
 	public void representacaoColecaoComDois() throws Exception {
 		assertEquals("/recursos", representacaoColecaoComDois.uri());
 		assertEquals(2, representacaoColecaoComDois.tamanho());
-		assertEquals(representacaoEntidade1, representacaoColecaoComDois.entidade(0));
-		assertEquals(representacaoEntidade2, representacaoColecaoComDois.entidade(1));
+		assertEquals(representacaoEntidade1, representacaoColecaoComDois.representacao(0));
+		assertEquals(representacaoEntidade2, representacaoColecaoComDois.representacao(1));
 	}
 
 	@Test

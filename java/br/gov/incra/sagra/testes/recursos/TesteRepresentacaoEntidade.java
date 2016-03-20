@@ -24,16 +24,18 @@ public class TesteRepresentacaoEntidade {
 	public void configurar() {
 		representacaoEntidade1 = new RepresentacaoEntidade<>("/recurso/1", entidade1);
 		representacaoEntidade2 = new RepresentacaoEntidade<>("/recurso/2", entidade2);
+		assertNotNull(entidade1);
+		assertNotNull(entidade2);
 	}
 
 	@Test
-	public void representacao1() throws Exception {
+	public void representacaoEntidade1() throws Exception {
 		assertEquals("/recurso/1", representacaoEntidade1.uri());
 		assertEquals(entidade1, representacaoEntidade1.entidade());
 	}
 
 	@Test
-	public void representacao2() throws Exception {
+	public void representacaoEntidade2() throws Exception {
 		assertEquals("/recurso/2", representacaoEntidade2.uri());
 		assertEquals(entidade2, representacaoEntidade2.entidade());
 	}
@@ -44,17 +46,16 @@ public class TesteRepresentacaoEntidade {
 		RepresentacaoEntidade<Entidade> representacao2Clone = new RepresentacaoEntidade<>("/recurso/2", entidade2);
 		assertEquals(representacao1Clone, representacaoEntidade1);
 		assertEquals(representacao2Clone, representacaoEntidade2);
-
 	}
 
 	@Test
 	public void diferentes() throws Exception {
-		RepresentacaoEntidade<Entidade> representacao12 = new RepresentacaoEntidade<>("/recurso/1", entidade2);
-		RepresentacaoEntidade<Entidade> representacao21 = new RepresentacaoEntidade<>("/recurso/2", entidade1);
-		assertNotEquals(representacao12, representacaoEntidade1);
-		assertNotEquals(representacao12, representacaoEntidade2);
-		assertNotEquals(representacao21, representacaoEntidade1);
-		assertNotEquals(representacao21, representacaoEntidade2);
+		RepresentacaoEntidade<Entidade> representacao1Entidade2 = new RepresentacaoEntidade<>("/recurso/1", entidade2);
+		RepresentacaoEntidade<Entidade> representacao2Entidade1 = new RepresentacaoEntidade<>("/recurso/2", entidade1);
+		assertNotEquals(representacao1Entidade2, representacaoEntidade1);
+		assertNotEquals(representacao1Entidade2, representacaoEntidade2);
+		assertNotEquals(representacao2Entidade1, representacaoEntidade1);
+		assertNotEquals(representacao2Entidade1, representacaoEntidade2);
 		assertNotEquals(representacaoEntidade1, representacaoEntidade2);
 	}
 

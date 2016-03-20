@@ -18,4 +18,15 @@ public class Documento<T> {
 		return entidade;
 	}
 
+	@Override
+	public boolean equals(Object objeto) {
+		if (objeto instanceof Documento) {
+			Documento<?> outro = (Documento<?>) objeto;
+			Boolean identificadorIgual = identificador.equals(outro.identificador);
+			Boolean entidadeIgual = entidade.equals(outro.entidade);
+			return identificadorIgual && entidadeIgual;
+		}
+		return super.equals(objeto);
+	}
+
 }

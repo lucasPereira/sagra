@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import br.gov.incra.sagra.entidades.SuperintendenciaRegional;
 import br.gov.incra.sagra.infraestrutura.Ambiente;
-import br.gov.incra.sagra.persistencia.RespostaPersistencia;
+import br.gov.incra.sagra.persistencia.RespostaPersistenciaEntidade;
 import br.gov.incra.sagra.persistencia.PersistenciaSuperintendenciaRegional;
 import br.gov.incra.sagra.testes.entidades.TesteSuperintendenciaRegional10;
 import br.gov.incra.sagra.testes.entidades.TesteSuperintendenciaRegional13;
@@ -31,7 +31,7 @@ public class TestePersistenciaSuperintendenciaRegional {
 
 	@Test
 	public void cadastrarUm() throws Exception {
-		RespostaPersistencia<?> resposta = persistencia.cadastrar(sr10);
+		RespostaPersistenciaEntidade<?> resposta = persistencia.cadastrar(sr10);
 		assertTrue(resposta.sucesso());
 		assertEquals("1", resposta.documento().identificador());
 		assertEquals(sr10, resposta.documento().entidade());
@@ -40,7 +40,7 @@ public class TestePersistenciaSuperintendenciaRegional {
 	@Test
 	public void cadastrarDois() throws Exception {
 		persistencia.cadastrar(sr10);
-		RespostaPersistencia<?> resposta = persistencia.cadastrar(sr13);
+		RespostaPersistenciaEntidade<?> resposta = persistencia.cadastrar(sr13);
 		assertTrue(resposta.sucesso());
 		assertEquals("2", resposta.documento().identificador());
 		assertEquals(sr13, resposta.documento().entidade());
@@ -49,7 +49,7 @@ public class TestePersistenciaSuperintendenciaRegional {
 	@Test
 	public void cadastrarDoisIguais() throws Exception {
 		persistencia.cadastrar(sr10);
-		RespostaPersistencia<?> resposta = persistencia.cadastrar(sr10);
+		RespostaPersistenciaEntidade<?> resposta = persistencia.cadastrar(sr10);
 		assertTrue(resposta.sucesso());
 		assertEquals("2", resposta.documento().identificador());
 		assertEquals(sr10, resposta.documento().entidade());

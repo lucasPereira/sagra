@@ -67,7 +67,6 @@ public class TesteRecursoUnidadesFederativas {
 
 	@Test
 	public void getComZero() throws Exception {
-		recurso.post("Santa Catarina", "SC");
 		RespostaRecurso<RepresentacaoColecao<UnidadeFederativa>> resposta = ambiente.recursoUnidadesFederativas().get();
 		assertEquals(CodigoDeEstado.HTTP200, resposta.codigoDeEstado());
 		assertEquals("/unidadesFederativas", resposta.representacao().uri());
@@ -82,8 +81,10 @@ public class TesteRecursoUnidadesFederativas {
 		assertEquals(CodigoDeEstado.HTTP200, resposta.codigoDeEstado());
 		assertEquals("/unidadesFederativas", resposta.representacao().uri());
 		assertEquals(2, resposta.representacao().tamanho());
-		assertEquals(matoGrosso, resposta.representacao().entidade(0));
-		assertEquals(santaCatarina, resposta.representacao().entidade(1));
+		assertEquals("/unidadeFederativa/2", resposta.representacao().representacao(0).uri());
+		assertEquals("/unidadeFederativa/1", resposta.representacao().representacao(1).uri());
+		assertEquals(matoGrosso, resposta.representacao().representacao(0).entidade());
+		assertEquals(santaCatarina, resposta.representacao().representacao(1).entidade());
 	}
 
 }
