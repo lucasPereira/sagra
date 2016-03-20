@@ -3,6 +3,14 @@
 	<classpathentry kind="src" path="java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="jar/estoria.jar"/>
+	<classpathentry kind="lib" path="jar/httpasyncclient-4.1.1.jar"/>
+	<classpathentry kind="lib" path="jar/httpclient-4.5.2.jar"/>
+	<classpathentry kind="lib" path="jar/httpmime-4.5.2.jar"/>
+	<classpathentry kind="lib" path="jar/unirest-java-1.4.7.jar"/>
+	<classpathentry kind="lib" path="jar/httpcore-4.4.4.jar"/>
+	<classpathentry kind="lib" path="jar/httpcore-nio-4.4.4.jar"/>
+	<classpathentry kind="lib" path="jar/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="jar/gson-2.6.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="class"/>
 </classpath>

@@ -20,9 +20,7 @@ public class PersistenciaUnidadeFederativa implements Persistencia<UnidadeFedera
 
 	@Override
 	public RespostaPersistenciaEntidade<UnidadeFederativa> cadastrar(UnidadeFederativa entidade) {
-		String identificador = ambiente.auxiliarGeradorDeIdentificador().gerar();
-		Documento<UnidadeFederativa> documento = new Documento<>(identificador, entidade);
-		RespostaPersistenciaEntidade<UnidadeFederativa> resposta = new RespostaPersistenciaEntidade<>(documento);
+		RespostaPersistenciaEntidade<UnidadeFederativa> resposta = new Persistidor<UnidadeFederativa>().cadastrar(ambiente, entidade);
 		documentos.add(resposta.documento());
 		return resposta;
 	}

@@ -1,5 +1,8 @@
 package br.gov.incra.sagra.infraestrutura;
 
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
+
 import br.gov.incra.sagra.auxiliar.GeradorDeIdentificador;
 import br.gov.incra.sagra.auxiliar.GeradorDeIdentificadorInteiroSequencial;
 import br.gov.incra.sagra.persistencia.PersistenciaSuperintendenciaRegional;
@@ -20,6 +23,15 @@ public class Ambiente {
 		this.recursoUnidadesFederativas = new RecursoUnidadesFederativas(this);
 	}
 
+	public void iniciarPersistencia() {
+		try {
+			Unirest.delete(persistenciaNome()).asBinary();
+			Unirest.put(persistenciaNome()).asBinary();
+		} catch (UnirestException excecao) {
+			excecao.printStackTrace();
+		}
+	}
+
 	public GeradorDeIdentificador auxiliarGeradorDeIdentificador() {
 		return auxiliarGerador;
 	}
@@ -34,6 +46,10 @@ public class Ambiente {
 
 	public RecursoUnidadesFederativas recursoUnidadesFederativas() {
 		return recursoUnidadesFederativas;
+	}
+
+	public String persistenciaNome() {
+		return "http://localhost:5984/sagra";
 	}
 
 }
