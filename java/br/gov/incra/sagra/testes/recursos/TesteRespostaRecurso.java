@@ -32,7 +32,7 @@ public class TesteRespostaRecurso {
 	}
 
 	@Test
-	public void representacaoColetacao() throws Exception {
+	public void representacaoColecao() throws Exception {
 		RespostaRecurso<?> resposta = new RespostaRecurso<>(CodigoDeEstado.HTTP200, representacaoColecaoComDois);
 		assertEquals(CodigoDeEstado.HTTP200, resposta.codigoDeEstado());
 		assertEquals(representacaoColecaoComDois, resposta.representacao());

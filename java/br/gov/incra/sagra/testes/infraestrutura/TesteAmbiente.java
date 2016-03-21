@@ -14,7 +14,6 @@ public class TesteAmbiente {
 	@Before
 	public void configurar() {
 		ambiente = new Ambiente();
-		ambiente.iniciarPersistencia();
 	}
 
 	@Test

@@ -16,17 +16,27 @@ public class TesteRespostaPersistenciaEntidade {
 	@Fixture private Documento<Entidade> documentoEntidade1;
 
 	@Test
-	public void sucesso() throws Exception {
-		RespostaPersistenciaEntidade<?> resposta = new RespostaPersistenciaEntidade<>(documentoEntidade1);
-		assertTrue(resposta.sucesso());
+	public void comCodigoDeEstadoEntidade() throws Exception {
+		RespostaPersistenciaEntidade<?> resposta = new RespostaPersistenciaEntidade<>(201, documentoEntidade1);
+		assertTrue(resposta.semExcecao());
+		assertEquals(201, resposta.codigoDeEstado().intValue());
 		assertEquals(documentoEntidade1, resposta.documento());
 		assertNotNull(documentoEntidade1);
 	}
 
 	@Test
-	public void fracasso() throws Exception {
+	public void comCodigoDeEstadoSemEntidade() throws Exception {
+		RespostaPersistenciaEntidade<?> resposta = new RespostaPersistenciaEntidade<>(404);
+		assertTrue(resposta.semExcecao());
+		assertEquals(404, resposta.codigoDeEstado().intValue());
+		assertNull(resposta.documento());
+	}
+
+	@Test
+	public void semCodigoDeEstadoSemEntidade() throws Exception {
 		RespostaPersistenciaEntidade<?> resposta = new RespostaPersistenciaEntidade<>();
-		assertFalse(resposta.sucesso());
+		assertFalse(resposta.semExcecao());
+		assertNull(resposta.codigoDeEstado());
 		assertNull(resposta.documento());
 	}
 

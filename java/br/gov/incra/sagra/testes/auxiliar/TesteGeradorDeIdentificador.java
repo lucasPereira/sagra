@@ -16,8 +16,8 @@ public class TesteGeradorDeIdentificador {
 
 	@Test
 	public void testar() throws Exception {
-		assertEquals("1", ambiente.auxiliarGeradorDeIdentificador().gerar());
-		assertEquals("2", ambiente.auxiliarGeradorDeIdentificador().gerar());
+		assertEquals("1", ambiente.geradorDeIdentificador().gerar());
+		assertEquals("2", ambiente.geradorDeIdentificador().gerar());
 	}
 
 }

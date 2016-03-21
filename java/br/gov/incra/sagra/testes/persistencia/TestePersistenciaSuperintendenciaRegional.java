@@ -32,7 +32,7 @@ public class TestePersistenciaSuperintendenciaRegional {
 	@Test
 	public void cadastrarUm() throws Exception {
 		RespostaPersistenciaEntidade<?> resposta = persistencia.cadastrar(sr10);
-		assertTrue(resposta.sucesso());
+		assertTrue(resposta.semExcecao());
 		assertEquals("1", resposta.documento().identificador());
 		assertEquals(sr10, resposta.documento().entidade());
 	}
@@ -41,7 +41,7 @@ public class TestePersistenciaSuperintendenciaRegional {
 	public void cadastrarDois() throws Exception {
 		persistencia.cadastrar(sr10);
 		RespostaPersistenciaEntidade<?> resposta = persistencia.cadastrar(sr13);
-		assertTrue(resposta.sucesso());
+		assertTrue(resposta.semExcecao());
 		assertEquals("2", resposta.documento().identificador());
 		assertEquals(sr13, resposta.documento().entidade());
 	}
@@ -50,7 +50,7 @@ public class TestePersistenciaSuperintendenciaRegional {
 	public void cadastrarDoisIguais() throws Exception {
 		persistencia.cadastrar(sr10);
 		RespostaPersistenciaEntidade<?> resposta = persistencia.cadastrar(sr10);
-		assertTrue(resposta.sucesso());
+		assertTrue(resposta.semExcecao());
 		assertEquals("2", resposta.documento().identificador());
 		assertEquals(sr10, resposta.documento().entidade());
 	}

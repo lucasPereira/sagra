@@ -20,7 +20,7 @@ public class PersistenciaUnidadeFederativa implements Persistencia<UnidadeFedera
 
 	@Override
 	public RespostaPersistenciaEntidade<UnidadeFederativa> cadastrar(UnidadeFederativa entidade) {
-		RespostaPersistenciaEntidade<UnidadeFederativa> resposta = new Persistidor<UnidadeFederativa>().cadastrar(ambiente, entidade);
+		RespostaPersistenciaEntidade<UnidadeFederativa> resposta = ambiente.bancoDeDocumentos().cadastrar(ambiente, entidade);
 		documentos.add(resposta.documento());
 		return resposta;
 	}

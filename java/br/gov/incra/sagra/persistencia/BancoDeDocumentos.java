@@ -9,26 +9,33 @@ import com.mashape.unirest.request.HttpRequestWithBody;
 
 import br.gov.incra.sagra.infraestrutura.Ambiente;
 
-public class Persistidor<T> {
+public class BancoDeDocumentos {
 
-	public RespostaPersistenciaEntidade<T> cadastrar(Ambiente ambiente, T entidade) {
+	public BancoDeDocumentos(Ambiente ambiente) {
 		try {
-			Gson gson = new Gson();
-			JsonElement objetoJson = gson.toJsonTree(entidade);
-			String identificadorGerado = ambiente.auxiliarGeradorDeIdentificador().gerar();
-			objetoJson.getAsJsonObject().addProperty("_id", identificadorGerado);
+			Unirest.delete(ambiente.persistenciaNome()).asBinary();
+			Unirest.put(ambiente.persistenciaNome()).asBinary();
+		} catch (UnirestException excecao) {
+			excecao.printStackTrace();
+		}
+	}
+
+	public <T> RespostaPersistenciaEntidade<T> cadastrar(Ambiente ambiente, T entidade) {
+		try {
+			String conteudo = ambiente.mapeadorJson().mapearEntidadeParaJson(entidade);
 			HttpRequestWithBody requisicao = Unirest.post("http://localhost:5984/sagra");
 			requisicao.header("Content-Type", "application/json");
 			requisicao.header("Accept", "application/json");
-			requisicao.body(gson.toJson(objetoJson));
+			requisicao.body(conteudo);
 			HttpResponse<String> resposta = requisicao.asString();
-			if (resposta.getStatus() == 201) {
-				JsonElement respostaJson = gson.fromJson(resposta.getBody(), JsonElement.class);
+			Integer codigoDeEstado = resposta.getStatus();
+			if (codigoDeEstado == 201) {
+				JsonElement respostaJson = new Gson().fromJson(resposta.getBody(), JsonElement.class);
 				String identificador = respostaJson.getAsJsonObject().get("id").getAsString();
 				Documento<T> documento = new Documento<T>(identificador, entidade);
-				return new RespostaPersistenciaEntidade<>(documento);
+				return new RespostaPersistenciaEntidade<>(codigoDeEstado, documento);
 			} else {
-				return new RespostaPersistenciaEntidade<>();
+				return new RespostaPersistenciaEntidade<>(codigoDeEstado);
 			}
 		} catch (UnirestException excecao) {
 			return new RespostaPersistenciaEntidade<>();

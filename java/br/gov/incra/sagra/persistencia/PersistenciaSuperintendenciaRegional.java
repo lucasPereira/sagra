@@ -18,9 +18,9 @@ public class PersistenciaSuperintendenciaRegional implements Persistencia<Superi
 
 	@Override
 	public RespostaPersistenciaEntidade<SuperintendenciaRegional> cadastrar(SuperintendenciaRegional entidade) {
-		String identificador = ambiente.auxiliarGeradorDeIdentificador().gerar();
+		String identificador = ambiente.geradorDeIdentificador().gerar();
 		Documento<SuperintendenciaRegional> documento = new Documento<SuperintendenciaRegional>(identificador, entidade);
-		RespostaPersistenciaEntidade<SuperintendenciaRegional> resposta = new RespostaPersistenciaEntidade<>(documento);
+		RespostaPersistenciaEntidade<SuperintendenciaRegional> resposta = new RespostaPersistenciaEntidade<>(201, documento);
 		superintendencias.add(resposta.documento());
 		return resposta;
 	}
