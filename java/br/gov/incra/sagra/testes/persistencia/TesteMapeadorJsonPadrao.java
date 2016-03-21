@@ -19,7 +19,6 @@ public class TesteMapeadorJsonPadrao {
 
 	private String jsonEntidade1;
 	private String jsonDocumentoEntidade1;
-
 	private MapeadorJsonPadrao mapeadorJsonPadrao;
 
 	@Before
@@ -37,8 +36,8 @@ public class TesteMapeadorJsonPadrao {
 
 	@Test
 	public void paraObjeto() throws Exception {
-		assertEquals(entidade1, mapeadorJsonPadrao.mapearJsonParaEntidade(jsonEntidade1));
-		assertEquals(documentoEntidade1, mapeadorJsonPadrao.mapearJsonParaDocumento(jsonDocumentoEntidade1));
+		assertEquals(entidade1, mapeadorJsonPadrao.mapearJsonParaEntidade(jsonEntidade1, entidade1.getClass()));
+		assertEquals(documentoEntidade1, mapeadorJsonPadrao.mapearJsonParaDocumento(jsonDocumentoEntidade1, entidade1.getClass()));
 	}
 
 }

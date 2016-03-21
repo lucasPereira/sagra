@@ -32,13 +32,13 @@ public class MapeadorJsonParaTestes implements MapeadorJson {
 	}
 
 	@Override
-	public <T> T mapearJsonParaEntidade(String json) {
-		return mapeadorPadrao.mapearJsonParaEntidade(json);
+	public <T> T mapearJsonParaEntidade(String json, Class<T> classe) {
+		return mapeadorPadrao.mapearJsonParaEntidade(json, classe);
 	}
 
 	@Override
-	public <T> Documento<T> mapearJsonParaDocumento(String json) {
-		return mapeadorPadrao.mapearJsonParaDocumento(json);
+	public <T> Documento<T> mapearJsonParaDocumento(String json, Class<T> classe) {
+		return mapeadorPadrao.mapearJsonParaDocumento(json, classe);
 	}
 
 }

@@ -6,8 +6,8 @@ public interface MapeadorJson {
 
 	public <T> String mapearDocumentoParaJson(Documento<T> documento);
 
-	public <T> T mapearJsonParaEntidade(String json);
+	public <T> T mapearJsonParaEntidade(String json, Class<T> classe);
 
-	public <T> Documento<T> mapearJsonParaDocumento(String json);
+	public <T> Documento<T> mapearJsonParaDocumento(String json, Class<T> classe);
 
 }
